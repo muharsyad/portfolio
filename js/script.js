@@ -1,50 +1,32 @@
-const toggleButton = document.getElementById("theme-toggle");
-const body = document.body;
-const hamburger = document.getElementById("hamburger");
-const navbar = document.querySelector(".navbar");
-const themeIcon = toggleButton.querySelector("i");
-
-// Cek preferensi dark mode dari localStorage
-if (localStorage.getItem("theme") === "dark") {
-    body.classList.add("dark");
-    themeIcon.classList.replace("ri-moon-fill", "ri-sun-fill");
-}
-
-// Toggle Dark Mode
-toggleButton.addEventListener("click", () => {
-    body.classList.toggle("dark");
-
-    if (body.classList.contains("dark")) {
-        localStorage.setItem("theme", "dark");
-        themeIcon.classList.replace("ri-moon-fill", "ri-sun-fill"); // Ganti ikon ke matahari
-    } else {
-        localStorage.setItem("theme", "light");
-        themeIcon.classList.replace("ri-sun-fill", "ri-moon-fill"); // Ganti ikon ke bulan
-    }
-});
-
-function toggleNavbar() {
-    const navLinks = document.getElementById('navLinks');
-    if (navLinks.style.display === "flex") {
-        navLinks.style.display = 'none';
-    } else {
-        navLinks.style.display = 'flex';
-    }
+function toggleMenu() {
+    document.getElementById("mobile-menu").classList.toggle("active");
 }
 
 function filterProjects(category) {
-    let projects = document.querySelectorAll(".card-item");
-    
+    const buttons = document.querySelectorAll(".filter-btn");
+    buttons.forEach((btn) => btn.classList.remove("active"));
+    document.getElementById(`btn-${category}`).classList.add("active");
+
+    const projects = document.querySelectorAll(".project-card");
+    let hasVisible = false;
+
     projects.forEach((project) => {
-        if (category === "all") {
+        const projectCategory = project.getAttribute("data-category");
+        if (category === "all" || projectCategory === category) {
             project.classList.remove("hidden");
+            hasVisible = true;
         } else {
-            if (project.getAttribute("data-category") === category) {
-                project.classList.remove("hidden");
-            } else {
-                project.classList.add("hidden");
-            }
+            project.classList.add("hidden");
         }
     });
+
+    const noResults = document.getElementById("noResults");
+    if (hasVisible) noResults.classList.add("hidden");
+    else noResults.classList.remove("hidden");
 }
 
+document.querySelectorAll(".mobile-menu a").forEach((link) => {
+    link.addEventListener("click", () =>
+        document.getElementById("mobile-menu").classList.remove("active"),
+    );
+});

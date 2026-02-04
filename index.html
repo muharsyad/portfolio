@@ -1,109 +1,272 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio | Muhacode</title>
+    <title>Portofolio & Studi Kasus - Muhacode</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" integrity="sha512-MqL4+Io386IOPMKKyplKII0pVW5e+kb+PI/I3N87G3fHIfrgNNsRpzIXEi+0MQC0sR9xZNqZqCYVcC61fL5+Vg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="shortcut icon" href="assets/logo.svg" type="image/x-icon">
 </head>
 <body>
-    <!-- NAVBAR SECTION -->
-    <div class="navbar flx-rw">
-        <div class="logo">
-            <a href="../muharsyad.github.io/">
-                <img src="assets/logo-nav.png" alt="">
-            </a>
-        </div>
-        <div class="nav-links flx-rw" id="navLinks">
-            <a href="#" >Beranda</a>
-            <a href="#" >Kursus</a>
-            <a href="#">Layanan</a>
-            <a href="#">Blog</a>
-            <a href="#" class="active">Portofolio</a>
-            <a href="#">Peta Jalan</a>
-            <a href="#">Tentang</a>
-        </div>
-        <div class="nav-button flx-rw">
-            <a href="en" class="btn-lang">EN</a>
-            <button id="theme-toggle"><i class="ri-moon-fill"></i></button>
-            <div class="hamburger" onclick="toggleNavbar()"><i class="ri-menu-fill"></i></div>
-        </div>
+
+    <!-- Background Math Symbols -->
+    <div class="math-bg-container">
+        <div class="math-symbol animate-float" style="font-size: 4rem; top: 10%; left: 5%;">∫</div>
+        <div class="math-symbol animate-float-delayed" style="font-size: 3rem; top: 20%; right: 10%;">∑</div>
+        <div class="math-symbol animate-float" style="font-size: 3.5rem; bottom: 15%; left: 20%;">π</div>
+        <div class="math-symbol animate-float-delayed" style="font-size: 4rem; bottom: 30%; right: 5%;">λ</div>
+        <div class="math-symbol" style="font-size: 2.5rem; top: 40%; left: 50%; opacity: 0.1;">f(x)</div>
     </div>
 
-    <!-- HERO SECTION -->
-    <div class="hero-section flx-cl">
-        <div class="item flx-cl">
-            <h1>Lihat Hasil Karya & Proyek Menarik</h1>
-            <p>Jelajahi berbagai proyek yang dibuat oleh  Muhacode. Mulai dari analisis data, model machine learning, hingga AI canggih.</p>
-        </div>
-    </div>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="container nav-content">
+            <div class="logo font-mono">
+                <a href="#">
+                    <span style="color: var(--brand-primary)">&lt;</span>Muha<span style="color: white">Code</span><span
+                        style="color: var(--brand-primary)">/&gt;</span>
+                </a>
+            </div>
 
-    <!-- SHOWCASE SECTION -->
-    <div class="showcase-section">
-        <div class="filter-buttons">
-            <button onclick="filterProjects('all')">Semua</button>
-            <button onclick="filterProjects('ai')">AI / Machine Learning</button>
-            <button onclick="filterProjects('nlp')">Natural Language Processing</button>
-            <button onclick="filterProjects('data')">Data Analysis</button>
+            <ul class="nav-links font-mono">
+                <li><a href="../muharsyad.github.io">Home</a></li>
+                <li><a href="../course">Course</a></li>
+                <li><a href="../roadmap">Roadmap</a></li>
+                <li><a href="../service">Layanan</a></li>
+                <li><a href="../blog">Blog</a></li>
+            </ul>
+
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div class="desktop-only">
+                    <a href="../contact" class="btn btn-primary" style="padding: 0.5rem 1.5rem; font-size: 0.875rem;">Tentang Saya</a>
+                </div>
+
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
-        <div class="card-container flx-rw">
-            <div class="card-item" data-category="ai">
-                <div class="flx-rw">
-                    <div class="text">
-                        <h3>ProduSket - AI untuk Fashion Sketch</h3>
-                        <p>Menggunakan GAN untuk mengubah sketsa fashion menjadi gambar realitis</p>
-                        <p><b>Teknologi:</b>Python, PyTorch, OpenCV</p>
+
+        <!-- Mobile Menu Panel -->
+        <div class="mobile-menu-panel font-mono" id="mobile-menu">
+            <a href="../muharsyad.github.io" onclick="toggleMenu()">Home</a>
+            <a href="../course" onclick="toggleMenu()">Course</a>
+            <a href="../roadmap" onclick="toggleMenu()">Roadmap</a>
+            <a href="../service" onclick="toggleMenu()">Layanan</a>
+            <a href="../blog" onclick="toggleMenu()">Blog</a>
+            <a href="../contact" onclick="toggleMenu()" style="color: var(--brand-primary); font-weight: bold;">Tentang
+                Saya</a>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="hero-header">
+        <div class="container">
+            <h1>Selected <span style="color: var(--brand-primary);">Works</span></h1>
+            <p>Kombinasi antara logika matematika yang presisi dan implementasi kode yang efisien. Berikut adalah beberapa proyek pilihan yang telah saya kerjakan.</p>
+
+            <div class="filter-container">
+                <button onclick="filterProjects('all')" class="filter-btn active" id="btn-all">All Projects</button>
+                <button onclick="filterProjects('data')" class="filter-btn" id="btn-data">Data Science</button>
+                <button onclick="filterProjects('ai')" class="filter-btn" id="btn-ai">AI & ML</button>
+                <button onclick="filterProjects('web')" class="filter-btn" id="btn-web">Web Development</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN PORTFOLIO -->
+    <main>
+        <div class="container">
+            <div id="projectGrid" class="project-grid">
+
+                <!-- Project 1: Data -->
+                <div class="project-card" data-category="data">
+                    <div class="project-img-container">
+                        <div class="project-img-placeholder">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag-pill" style="color: var(--brand-secondary);">Tableau</span>
+                            <span class="tag-pill" style="color: #60a5fa;">SQL</span>
+                        </div>
                     </div>
-                    <div class="img">
-                        <img src="assets/produsket.png" alt="">
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 class="project-title">Sales Dashboard Analytics</h3>
+                            <div class="external-links">
+                                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <p class="project-desc">Dashboard interaktif untuk memonitor KPI penjualan ritel. Menggabungkan data dari 3 sumber database berbeda.</p>
+                        
+                        <div class="card-footer-info">
+                            <span class="footer-label">Impact</span>
+                            <span class="footer-value" style="color: #4ade80;"><i class="fas fa-arrow-up"></i> Efisiensi Reporting +40%</span>
+                        </div>
+
+                        <a href="project-detail.html" class="btn-view-detail">
+                            Lihat Detail Proyek <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="cta-btn flx-rw">
-                    <a href="https://github.com/muharsyad/Final-Project-StartupCampus-MSIB" class="btn-1"><i class="ri-github-fill"></i> GitHub</a>
-                    <a href="https://visiongen.streamlit.app/" class="btn-1"><i class="ri-links-fill"></i> Demo</a>
-                </div>
-            </div>
-            
-        </div>
-    </div>
 
-    <!-- FOOTER SECTION -->
-    <div class="footer-section flx-cl">
-        <div class="item flx-rw">
-            <div class="item muhacode">
-                <img src="assets/logo-nav.png" alt="">
-                <p>Muhacode adalah platform edukasi daring yang menyediakan kursus gratis seputar Matematika, Data Science, dan Kecerdasan Buatan. Kami juga menawarkan layanan profesional untuk membantu individu dan bisnis dalam dunia digital berbasis data.</p>
-                <div class="flx-rw social-icons">
-                    <a href="https://www.linkedin.com/in/muhammad-arsyad-59865120a/" target="_blank"><i class="ri-linkedin-box-fill"></i></a>
-                    <a href="https://github.com/muharsyad" target="_blank"><i class="ri-github-fill"></i></a>
-                    <a href="https://www.instagram.com/muha.rsyd/" target="_blank"><i class="ri-instagram-fill"></i></a>
-                    <a href="mailto:muharsyad2201@gmail.com"><i class="ri-mail-fill"></i></i></a>
-                    <a href="https://arsyadmuh.medium.com" target="_blank"><i class="ri-medium-fill"></i></a>
+                <!-- Project 2: AI/ML -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-img-container">
+                        <div class="project-img-placeholder">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag-pill" style="color: var(--brand-primary);">Python</span>
+                            <span class="tag-pill" style="color: #a78bfa;">TensorFlow</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 class="project-title">House Price Prediction</h3>
+                            <div class="external-links">
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <p class="project-desc">Model regresi untuk memprediksi harga properti berdasarkan 20+ fitur menggunakan Hyperparameter Tuning.</p>
+                        
+                        <div class="card-footer-info">
+                            <span class="footer-label">Result</span>
+                            <span class="footer-value" style="color: var(--brand-secondary);">Akurasi R2 Score: 0.89</span>
+                        </div>
+
+                        <a href="project-detail.html" class="btn-view-detail">
+                            Lihat Detail Proyek <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Web -->
+                <div class="project-card" data-category="web">
+                    <div class="project-img-container">
+                        <div class="project-img-placeholder">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag-pill" style="color: #4ade80;">Django</span>
+                            <span class="tag-pill" style="color: #60a5fa;">PostgreSQL</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 class="project-title">Academic Info System</h3>
+                            <div class="external-links">
+                                <i class="fas fa-lock" title="Private Project"></i>
+                            </div>
+                        </div>
+                        <p class="project-desc">Sistem manajemen kampus terintegrasi (SIAKAD) dengan fitur pendaftaran mahasiswa dan pelaporan nilai.</p>
+                        
+                        <div class="card-footer-info">
+                            <span class="footer-label">Scale</span>
+                            <span class="footer-value">2000+ Active Users</span>
+                        </div>
+
+                        <a href="project-detail.html" class="btn-view-detail">
+                            Lihat Detail Proyek <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: Data/Math -->
+                <div class="project-card" data-category="data">
+                    <div class="project-img-container">
+                        <div class="project-img-placeholder">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag-pill" style="color: #f472b6;">NetworkX</span>
+                            <span class="tag-pill" style="color: var(--brand-secondary);">Teori Graf</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-header-row">
+                            <h3 class="project-title">Social Network Analysis</h3>
+                            <div class="external-links">
+                                <a href="#"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <p class="project-desc">Analisis komunitas pada data media sosial menggunakan Teori Graf untuk mengidentifikasi influencer kunci.</p>
+                        
+                        <div class="card-footer-info">
+                            <span class="footer-label">Method</span>
+                            <span class="footer-value" style="color: #f472b6;">Eigenvector Centrality</span>
+                        </div>
+
+                        <a href="project-detail.html" class="btn-view-detail">
+                            Lihat Detail Proyek <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div id="noResults" class="hidden">
+                    <i class="fas fa-folder-open"></i>
+                    <p>Belum ada proyek untuk kategori ini.</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 style="font-size: 2rem;">Punya Ide Proyek?</h2>
+            <p style="color: var(--text-gray); margin-top: 0.5rem;">Mari diskusikan bagaimana data dan teknologi bisa membantu bisnis Anda.</p>
+            <a href="services.html#contact-form" class="btn-collab">Mulai Kolaborasi</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="footer-logo font-mono">
+                        &lt;MuhaCode/&gt;
+                    </a>
+                    <p class="footer-text">Membangun pemahaman teknologi melalui fondasi matematika yang kuat. Belajar
+                        coding bukan sekadar menghafal sintaks, tapi memahami logika.</p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Navigasi</h4>
+                    <ul class="footer-links">
+                        <li><a href="course">Course</a></li>
+                        <li><a href="roadmap">Roadmap</a></li>
+                        <li><a href="service">Layanan</a></li>
+                        <li><a href="portfolio">Portofolio</a></li>
+                        <li><a href="blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Social</h4>
+                    <div class="social-row">
+                        <a href="#" style="--icon-color: #fff"><i class="fab fa-github"></i></a>
+                        <a href="#" style="--icon-color: #3b82f6"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="--icon-color: #f56565"><i class="fab fa-youtube"></i></a>
+                        <a href="#" style="--icon-color: #E91E63"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="item flx-cl">
-                <h4>Navigasi</h4>
-                <a href="#">Kursus</a>
-                <a href="#">Peta Jalan</a>
-                <a href="#">Portofolio</a>
-                <a href="#">Blog</a>
-                <a href="#">Layanan</a>
-                <a href="#">Tentang</a>
-            </div>
-            <div class="item flx-cl">
-                <h4>Kontak</h4>
-                <p>Email: <a href="mailto:hello.muhacode@gmail.com">hello.muhacode@gmail.com</a></p>
-                <p>Phone: <a href="https://wa.me/+6282324761705">+6282324761705</a></p>
-                <p>location: Banyumas, Jawa Tengah, Indonesia</p>
+
+            <div class="footer-bottom">
+                <p>© 2026 Muhacode. All rights reserved.</p>
+                <p class="font-mono" style="color: #374151;">Code is just applied Math & Logic.</p>
             </div>
         </div>
-        <div class="item line"></div>
-        <div class="copy-right">
-            <p>&copy 2025 Muhacode. All Rights Reserved.</p>
-        </div>
-    </div>
+    </footer>
 
     <script src="js/script.js"></script>
 </body>
